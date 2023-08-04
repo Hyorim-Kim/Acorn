@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+document.write('<h2>* 함수 정리 *</h2>');
+function func1(){   // 선언적 함수
+	document.write('난 func1 함수야<br>');
+}
+
+func1();
+const myfunc = func1;  // 함수객체 주소를 줌
+myfunc();
+
+function func2(arg1, arg2=20){
+	let imsi = arg1 + arg2;
+	return imsi;
+}
+let result = func2(1, 2);
+document.write('<br>', result);
+let result2 = func2("마라 귀신", "효림");
+document.write('<br>', result2);
+let result3 = func2(10);
+document.write('<br>', result3);
+
+function func3(){   // 매개변수가 없는 함수
+	document.write('<br>매개변수 개수:', arguments.length);
+	document.write('<br>매개변수 개수:', arguments[0] + arguments[1]);
+}
+func3();
+func3(3, 4);
+func3(3, 4, 5);
+func3("kbs", "mbc");
+
+function hap(){
+	if(arguments[0] === undefined) return;  // 조건이 아니다 싶으면 함수 없이 빨리 튀어나오기!
+	let tot = 0;
+	for(let i=0; i < arguments.length; i++){
+		tot += arguments[i]
+	}
+	return tot;
+}
+document.write('<br>hap :', hap(1, 2, 3));
+document.write('<br>hap :', hap("안녕", "반가워"));
+document.write('<br>hap :', hap());
+
+(function(){
+	document.write('<br>이름이 없는 함수 : 익명');
+})();   // 초기화 작업이 효과적
+
+const abc = function(n1, n2){  // 함수 표현식
+	document.write('<br>두 수의 합 : ' + (n1 + n2));
+}
+abc(2, 3);
+
+document.write('<br>');
+document.write('<br>선언적 함수와 함수표현식의 차이----')
+var v1 = 10;  // hoisting O
+let v2 = 20;  // hoisting X
+
+func4();
+function func4(){ // 선언적 함수 : 스크립트 실행 전 준비단계에서 전역으로 선언됨(hoisting)
+	document.write('<br>선언적 함수 수행 (처음부터 메모리가 확보됨)');
+}
+func4();
+
+// sbs();  // Uncaught ReferenceError
+let sbs = function(){ // 함수 표현식 : 실행흐름이 해당 함수에 도달했을 때 함수를 실행
+	document.write('<br>익명 함수 수행 (휘발성, 단발성, 동적)');
+}
+sbs();
+sbs();
+
+document.write('<br><br>중첩(내부) 함수 수행');
+function func5(){
+	document.write('<br>func5 수행 성공');
+	function fu1(){
+		document.write('<br>fu1 함수 수행');
+	}
+	function fu2(){
+		document.write('<br>fu2 함수 수행');
+	}
+	fu1();
+	fu2();
+}
+func5();
+//fu1();
+
+function func6(a, b){
+	function innerfunc(x){
+		return x * x;
+	}
+	return Math.sqrt(innerfunc(a) + innerfunc(b));
+}
+let re = func6(2, 3);
+document.write('<br>re : ' + re);
+
+document.write('<br>익명 함수 반환 ---------');
+function outer1(){
+	document.write('<br>와우! outer1');
+	return function(){
+		document.write('<br><i style="font:red;">익명 함수를 반환</i>');
+	}
+}
+outer1()();
+// 함수를 리턴하기 위해서는 ()를 추가함
+
+function outer2(name){
+	let msg = "매력 덩어리 " + name
+	return function(){
+		document.write('<br>' + msg);
+	}
+}
+outer2("서호")();
+
+document.write('<br>');
+let tvn = function(arg1){
+	let ytn = function(arg2){
+		return arg1 * arg2;
+	};
+	return "결과는 " + ytn(arg1);
+}
+document.write('<br>' + tvn(3));
+</script>
+</head>
+<body>
+<h2>* 함수 정리 *</h2>
+</body>
+</html>

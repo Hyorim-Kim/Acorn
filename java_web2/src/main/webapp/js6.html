@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+나만의 함수 만들기<p/>
+<script type="text/javascript">
+function myFunc(){  // 자원의 재활용을 목적으로 성격이 비슷한 내용만 작은 묶음으로 작성 (전역)
+	document.write("body 안에서 함수 선언함");
+	
+}
+myFunc();  // 함수 호출
+</script>
+<br>이런 저런 작업 하다가...</br>
+<script>
+	myFunc();
+	document.write("<br>");
+	myFunc();
+</script>
+</body>
+</html>
