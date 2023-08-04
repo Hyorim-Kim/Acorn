@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/* 이거 주석 */
+#sbs{
+	background-color: black;
+	color: yellow;
+	font-size: 20px;
+}
+
+table{
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+table tr td{
+	border-top: 1px solid #ff0000;
+	border-bottom: 2px dashed blue;
+	padding: 5px;
+}
+
+strong, span{
+	font-size: 32px;
+	background-color: yellow;
+}
+
+/* 동적 선택자 */
+input:focus{background-color: #78f;}
+
+a:link{text-decoration: none;}
+a:visited{color: red;}
+a:active{font-family: 궁서;}
+a:hover{color: cyan; font-size: 40px;}
+
+b{font-size: 8px;}
+div, b{font-size: 10px;}
+div b{font-size: 16px;}  /* div b의 자손 중에 b가 있으면 다 적용 받음 */
+div > b{font-size: 24px;}  /* div에 포함되어 있는 b의 직계자식만 적용 받음 */
+div b#hi{font-size: 32px;}  /* id가 hi인 경우만 적용 받음 */
+div b.hi{font-size: 40px;}  /* 클래스가 hi인 경우만 적용 받음 */
+
+div#mypic{
+	height: 150px;
+	background-image: url("../images/daum.png");
+	border: 1px dashed red;
+}
+
+img{
+	border: 3px solid blue;
+}
+
+
+
+
+
+

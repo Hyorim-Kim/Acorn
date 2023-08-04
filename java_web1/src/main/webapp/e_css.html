@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css test</title>
+<!-- internal style sheet -->
+<style type="text/css">
+h1{
+	font-size: 12px;
+	font-family: 고딕;
+	color:darksalmon}	
+
+.c1,.c2{
+	color:rgb(128, 128, 192);
+}
+
+#kbs{
+	color:darkturquoise; font-family: 돋움;
+}
+</style>
+<!-- external style sheet -->
+<link rel="stylesheet" type="text/css" href="css/ex.css">
+</head>
+<body>
+CSS : HTML에 스타일을 적용하기 위한 표현 언어<br>
+selector로 대상을 선택하고 원하는 스타일을 적용<br>
+방법: inline, internal, external
+<hr>
+연습을 시작하자 <span style="font-size:30px;color: lightpink;">인라인 방식</span> 영역 확보
+<h1 style="color:rgb(7, 184, 157);"><i>인터널 방식</i></h1>
+<h2>안녕</h2>
+<h1>반가워</h1>
+<p class="c1"> 클래스 사용 1</p>
+<h2 class="c1"> 클래스 사용 2</h2>
+<p>일반적인 p 태그</p>
+<i class="c1">i 클래스 사용 3</i>
+<br>
+<p id="kbs">p 아이디 적용1 (id 명은 중복 불가)</p>
+<div id="mbc">div 아이디 적용2</div>
+<p>보통 p 태그</p>
+<div id="sbs">div 아이디 적용 - 별도의 css 파일 사용</div>
+<form>
+	<table>
+		<tr>
+			<td>id 입력</td>
+			<td><input type="text" name="name"></td>
+		<tr>	
+		</tr>
+			<td>name 입력</td>
+			<td><input type="text" name="name">
+		</tr>
+	  <tr>
+
+		<td colspan="2"" style="text-align: center;">
+			<input type="button" value="확인">
+		 </td>
+	 </tr>
+	</table>
+</form>
+<hr>
+<span>목요일</span><br>
+<strong>8월 초</strong>
+<hr>
+<a href="http://www.naver.com">네이버</a><br>
+<a href="a.html">가자 a문서 만나러</a><br>
+<br/>
+<b>b tag</b><br>
+<div><b>div b tag</b></div>
+<div><span><b>div span b tag</b></span></div>
+<div><b id="hi">div b id:hi tag</b></div>
+<div><b class="hi">div b class:hi tag</b></div>
+
+<br>
+<div id="mypic">배경 이미지</div><br>
+<img src="images/daum.png" />
+
+</body>
+</html>
+
+
+
+
+
+
+

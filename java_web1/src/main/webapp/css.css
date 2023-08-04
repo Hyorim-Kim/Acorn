@@ -1,0 +1,18 @@
+@charset "UTF-8";
+/* 이거 주석 */
+#sbs{
+	background-color: black;
+	color: yellow;
+	font-size: 20px;
+}
+
+table{
+	width: 70%;
+	margin-bottom: 10px;
+}
+
+table tr td{
+	border-top: 1px solid #ff0000;
+	border-bottom: 2px dashed blue;
+	padding: 5px;
+}
