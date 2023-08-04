@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+변수와 연산자<hr>  <!-- html 주석 -->
+<script>
+	let aa;  // 변수, 한 줄 주석  /* 여러 줄 주석 */
+	aa = 10; // 입력되는 데이터에 따라 type이 결정
+	let bb = 12.3;
+	const cc = 20;  // 상수, 수정 불가
+	//cc = 30;
+	let dd = false;
+	let ee = "문자열";
+	document.write(aa, ' ', bb, ' ', cc, ' ', dd, ' ', ee);
+	document.write('<br>');
+	{
+		let v1 = 1;
+		{
+			let v2 = 2;
+			{
+				let v3 = 3;  // { } 중괄호 영역 내에서 유효한 지역 변수
+				// var v4 = 4;  // { } 중괄호와 관계없는 전역 변수, 비권장
+			}
+			//document.write(v3, ' ', v2, ' ', v1);
+			document.write(v2, ' ', v1);
+		} 	
+	}
+	
+</script>
+<hr>
+<script>
+	let x=5; y=2;
+	let a,b,c;
+	a=b=c=3+3;  // 할당 연산자 체이닝
+	document.write(a,' ',b,' ',c);
+	document.write('<br>',x,' ',y);
+	document.write('<br> 산술연산 : ',x + y);
+	document.write('<br>',x / y,' ',x % y);
+	document.write('<br>',2 ** 3);  // 2의 세제곱
+	document.write('<br> 관계연산 : ', x >= y, ' ', x != y);
+	document.write('<br> 논리연산 : ', x >= y && x != y);  // ||
+	document.write('<br> 누적 : ', x = x+1, ' ', ++x, ' ', x++);
+	document.write('<br> 삼항연산 : ', (x > y)?100:35+25);
+	
+	document.write('<br><br> type 확인 : ',
+	 				typeof 1, ' ',
+	 				typeof 1.5, ' ',
+	 				typeof '123', ' ',
+	 				typeof true);
+	document.write('<br><br> type 확인 : ', 				
+	 				typeof false, ' ',
+	 				typeof null, ' ',
+	 				typeof undefined, ' ',
+	 				typeof NaN);
+	 				
+	// ** false, null, undefined, ' ', 0, NaN의 boolean 값은 false이다. **
+ 	document.write('<br><br>', Boolean(0), ' ',  Boolean(1), ' ',  Boolean(-12.3));
+ 	document.write('<br>', '1' + 2, ' ', 2 + '1', ' ', 2 + 2 + '1');
+ 	let apple = "2";
+ 	let orange = "3";
+ 	document.write('<br>', apple + orange);   // 23
+ 	document.write('<br>', +apple + +orange); // 5   + : 단항 덧셈 연산자(Number 역할)
+ 	let tot = Number(apple) + Number(orange);
+ 	document.write('<br>', tot);
+ 	document.write('<br>', String(2) + String(3));  // 형변환 (자바: toString, parseInt)
+ 	
+ 	document.write('<br>', '사과의 수는 ' + apple);
+ 	document.write('<br>', `사과의 수는 ${apple}`);  //백틱(`)을 사용하면 ${}를 사용해서 문자열과 변수를 적절히 같이 사용
+ 	
+ 	document.write('<br>');
+ 	let su1 = 5 == '5';   // true  형변환 후 값 비교
+ 	let su2 = 5 === '5';  // false 형변환 없이 값 비교(숫자와 문자 같지 않음)
+ 	document.write('<br>', `su1은 ${su1}이고 su2는 ${su2}입니다`);
+ 		
+</script>
+</body>
+</html>
+
