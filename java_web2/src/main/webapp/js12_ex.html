@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+      function calculate() {
+         
+         if(document.getElementById("int1").value ==="" || 
+             document.getElementById("int2").value === "" ){
+             alert("연산할 숫자를 입력하시오");
+             return;
+         
+         }
+         
+         let int1 = parseFloat(document.getElementById("int1").value);
+         let int2 = parseFloat(document.getElementById("int2").value);
+         
+      
+      
+         if (document.getElementById("plus").checked) {
+            result = int1 + int2;
+         } else if (document.getElementById("minus").checked) {
+            result = int1 - int2;
+         } else if (document.getElementById("mult").checked) {
+            result = int1 * int2;
+         } else if (document.getElementById("divi").checked) {
+            if(int2 === 0){
+               alert("0으로 나눌 수 없어요");
+               return;
+            }
+            result = int1 / int2;
+         }
+
+         document.getElementById("result2").value = result;
+      }
+      function eraser(){
+         document.getElementById("int1").value = "";
+         document.getElementById("int2").value = "";
+         document.getElementById("result2").value = "";
+         document.getElementById("plus").checked = true;
+      }
+      
+   </script>
+   <meta charset="UTF-8">
+   <title>문제</title>
+</head>
+<body>
+   <h2>간단한 계산기</h2>
+   <form>
+   숫자1 : <input type="text" id="int1"><br>
+   숫자2 : <input type="text" id="int2"><br>
+    <br>
+   
+   <input type="radio" id="plus" name="operation" checked /> +&nbsp;&nbsp;
+   <input type="radio" id="minus" name="operation" /> -&nbsp;&nbsp;
+   <input type="radio" id="mult" name="operation" /> *&nbsp;&nbsp;
+   <input type="radio" id="divi" name="operation" /> /&nbsp;&nbsp;
+   
+   <br>
+   
+   <br>
+   <input type="button" id="result" value="결과보기 : " style="width: 70px;" onclick="calculate();">
+   <input type="text" id="result2" style="width: 60px;" style="width: 70px;">
+   <br><br>
+   <input type="button" value="지우기" onclick="eraser();">
+
+</body>
+</html>

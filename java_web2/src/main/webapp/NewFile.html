@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   function func1(){
+      //alert("a");
+      //let str1 = document.getElementById("test1").innerHTML;
+      let str1 = document.querySelector("#test1").innerHTML; // css의 selector 를 사용
+      console.log(str1);
+      //document.getElementById("test1").innerHTML = "<i>" + "다른 태그로 변경" + "</i>";
+      
+      let tag1 =  "이름 : <input type = 'text' name 'irum'> <br> 나이 : <input type = 'text' name 'nai'><br>"
+      document.getElementById("test1").innerHTML = tag1;
+   }
+   
+   function func2(){
+      //alert("b");
+      let str2 = document.getElementById("test2").innerText; // innerText은 div태그안에 있는 순수 text만 출력.
+      console.log(str2);
+      
+      let tag2 =  "이름 : <input type = 'text' name 'irum'> <br> 나이 : <input type = 'text' name 'nai'><br>"
+      document.getElementById("test2").innerText = tag2;
+   }
+</script>
+</head>
+<body>
+   <h2>이벤트 처리</h2>
+   실행 중인 tag의 생성, 삭제, 추가, 삭제 등의 작업이 가능 : DOM을 사용<br>
+   DOM이 번거롭기 때문에 간단히 처리할 수도 있다. innerText, innerHTML<hr>
+   
+   <div id="test1">
+      <h1>innerHTML 연습</h1>
+   </div>
+   
+   <div id="test2">
+      <h2>안녕하세요!</h2>
+   </div>
+   <button onclick="func1()">
+      처리1
+   </button>
+   <button onclick="func2()">
+      처리2
+   </button>
+   <br><br><br>
+   <h2>이벤트 핸들러 사용</h2>
+   <input type="button" value="버튼1">
+   <input type="button" value="버튼2">
+   <input type="button" value="버튼3">
+   
+   
+   <div id="show1">
+      출력1
+   </div>
+   <div id="show2">
+      출력2
+   </div>
+
+
+</body>
+</html>

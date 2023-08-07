@@ -99,6 +99,30 @@ function showcancel(){
 }
 
 ask("동의합니까?", showok, showcancel);
+
+// 재귀 호출 : 함수 자신을 호출 - 반복처리에 효과적(남발 금지)
+// 반복 처리1 : for문
+console.log(Math.pow(2, 3))  // 2를 3제곱
+
+function powFunc1(x, n){
+	let result = 1;
+	// x를 n번 반복
+	for(let i=0; i<n; i++){
+		result *= x;
+	}
+	return result;
+}
+console.log('powFunc1 수행 후 : ', powFunc1(2, 3));
+
+// 반복 처리2 : 재귀적인 사고를 사용
+function powFunc2(x, n){
+	if(n == 1){
+		return x;
+	}else{
+		return x * powFunc2(x, n-1); // 자신을 호출
+	}
+}
+console.log('powFunc2 수행 후 : ', powFunc2(2, 3));
 </script>
 </head>
 <body>
