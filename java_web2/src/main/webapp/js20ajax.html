@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		document.getElementById("btnOk1").onclick = function(){
+			sijak();
+		}
+		
+		document.querySelector("#btnOk2").onclick = sijakXML;
+		document.querySelector("#btnOk3").onclick = sijakJSON;
+	}
+	
+	let xhr;
+	
+	function sijak(){
+		//alert("a");
+		//Ajax : 비동기 방식으로 웹서버와 js 객체 간의 통신. 웹서버로 부터 부분 데이터를 수신할 수 있다.
+		xhr = new XMLHttpRequest(); // 비동기 방식 처리 클래스
+		//alert(xhr);
+		//xhr.open("요청방식", "요청파일명", true or false) // true:비동기 false:동기
+		//let url = "js20.txt";
+		let url = "js20csv.txt";
+		xhr.open("get", url, true)
+		
+		xhr.onreadystatechange = function(){
+			//alert(xhr.readyState);
+			/*
+			readyState 속성값
+			0: 초기화이전(uninitialized) - 객체 생성만 되고 초기화 이전, 즉, open 수행전
+			1: 로딩중(loading) - 객체 생성 및 초기화, 그러나 send 수행전
+			2: 로딩완료(loaded) - send 수행 되었으나 헤더와 status 값 미도착  
+			3: 서버 처리중(interactive) - 데이터 일부만 도착
+			4: 처리완료(completed) - 데이터 전부 도착
+			
+			status 속성값
+			200: 성공 (OK)
+			403: 접근거부 (Forbidden)
+			404: 파일 없음 (Not Found)
+			500: 서버 내부 오류 (Internal Server Error)
+			*/
+			if(xhr.readyState === 4){ // 서버와 통신 상태 양호
+				//alert(xhr.status);
+				if(xhr.status === 200){ // 요청 성공
+					processFunction();
+				}
+			}
+		}
+		
+		xhr.send(null);
+	}
+	
+	function processFunction(){
+		let data = xhr.responseText;
+		//document.querySelector("#disp").innerText = data;
+		
+		//let my = document.createTextNode(data); // DOM 사용
+		//document.querySelector("#disp").appendChild(my);
+		
+		// 행은 엔터로 구분
+		let rowData = data.split(String.fromCharCode(13)); // ascii코드 13:CR
+		//alert(rowData.length);
+		let str = "";
+		for(let i = 0; i < rowData.length; i++){
+			let colData = rowData[i].split(",");
+			for(let j = 0; j < colData.length; j++){
+				str += colData[j] + " ";
+				
+			}
+			str += "<hr>";
+		}
+		
+		document.querySelector("#disp").innerHTML = str;
+	}
+	
+	function sijakXML(){
+		alert("b");
+	}
+	
+	function sijakJSON(){
+		alert("c");
+	}
+</script>
+</head>
+<body>
+<h2>* Ajax 처리 *</h2>
+<button id="btnOk1">Ajax 원리 이해</button><br>
+<button id="btnOk2">XML 읽기</button><br>
+<button id="btnOk3">Json 읽기</button><br>
+<hr>
+<div id="disp"></div>
+
+</body>
+</html>

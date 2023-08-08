@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){  // window.onload 없으면 수행 안됨
+	// 객체 선언 방법
+	// 1. new 연산자 사용
+	// 숫자, 문자열, boolean 처럼 오직 하나의 데이터만 담을 수 있는 원시형(primitive type)
+	// 객체형(Object type) : 다양한 데이터를 담을 수 있다. (자바의 class 처럼)
+	let obj1 = new Object();   // let obj1 = {}; 와 동일
+	obj1.irum = "한국인";        // 객체 선언 후 값 부여
+	obj1.nai = 27;
+	obj1.juso = "강남구 역삼동";
+	obj1.getJuso = function(){  // 메소드
+		return obj1.juso;
+	}
+	console.log(obj1);
+	console.log(obj1.toString());
+	console.log(typeof obj1);
+	let str1 = obj1.irum + "님 나이는 " + obj1.nai + " 주소:" + obj1.getJuso();
+	document.getElementById("disp1").innerHTML = str1;  // str1을 부여
+	let obj2 = obj1;  // 주소 치환
+	obj2.irum = "공기밥";
+	let str2 = obj2.irum + "님 나이는 " + obj2.nai + " 주소:" + obj2.getJuso();
+	document.getElementById("disp2").innerHTML = str2;
+	
+	// 2. literal 사용
+	let myObj = {
+		irum:"홍길동",  // property(key):value  이것이 바로 jason type
+		nai:33,
+		showNai:function(msg){  // 메소드
+			return this.nai + msg   // 멤버필드 사용위해 this 붙임, msg는 지역
+		},
+	}
+	console.log(myObj, typeof myObj);
+	let str3 = myObj.irum + " " + myObj.nai + " " + myObj["nai"] + " " + myObj.showNai("살"); // 대괄호 표기법도 가능
+	document.getElementById("disp3").innerHTML = str3;
+	delete myObj.nai   // property 삭제
+	
+	// literal로 간단 계산기 작성
+	/*
+	let calculator = {
+		sum(){
+			return this.a + this.b;  // 자바스크립트는 멤버필드가 없어도 this 사용 가능
+		},
+		mul(){
+			return this.a * this.b;
+		},
+		read(){
+			this.a = +prompt('첫번째 숫자:', 1);   // +는 prompt의 문자열을 숫자로 변환시킴
+			this.b = +prompt('두번째 숫자:', 2);
+		}
+	};
+	calculator.read();
+	console.log(`더하기:${calculator.sum()}`);
+	console.log(`곱하기:${calculator.mul()}`);
+	*/
+	
+	// 3. 생성자 함수 사용
+	function Person(name){
+		this.name = name;  // 멤버변수 만들어짐
+		this.setName = function(newName){
+			this.name = name;
+		};
+	};
+	
+	let pp = new Person("손오공");
+	Person.prototype.jik = "대리";  // 원형 객체 멤버 : 같은 타입의 여러 객체가 공유 가능
+	let str4 = pp.name + " " + pp.jik;
+	document.getElementById("disp4").innerHTML = str4;
+	
+	
+	// 생성자 함수로 간단 계산기 작성
+	function MyCalculator() {
+		this.read = function(){
+			this.a = +prompt('첫번째 숫자:', 1);   // +는 prompt의 문자열을 숫자로 변환시킴
+			this.b = +prompt('두번째 숫자:', 2);
+		};
+		this.sum = function() {
+			return this.a + this.b;
+		};
+		this.mul = function() {
+			return this.a * this.b;
+		};
+	}
+	let calculator2 = new MyCalculator();
+	calculator2.read();
+	console.log(`더하기:${calculator2.sum()}`);
+	console.log(`곱하기:${calculator2.mul()}`);
+
+}
+	
+	
+</script>
+</head>
+<body>
+객체 생성 후 처리<br>
+<div id="disp1"></div>
+<div id="disp2"></div>
+<div id="disp3"></div>
+<div id="disp4"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>class</title>
+</head>
+<body>
+   <script>
+      // class명은 대소문자 구분하지 않는다.
+      class Class1{ // js에서는 접근제어자가 없다.
+         addr = "서울"; // 멤버변수는 let을 적지 않는다. prototype 속성
+         
+         constructor(name){  // 생성자 쓸 내용없으면 생략 가능하다. , 오버로딩 불가하다.
+            this.name = name; // 각 인스턴스의 멤버 변수로 작성
+         }
+         
+         sayHi(){ // 메서드 : 오버로딩 불가
+            document.write("<br>", this.name);
+            document.write("<br>", this.addr);
+            let msg = "프로그래머"; // 지역변수(lv) 은 let을 적용한다.
+            return "<br>이름은 " + this.name + " " + msg;
+         }
+      }
+      let class1 = new Class1("신기해");   // 객체생성
+      document.write("<br>주소는 ", Class1.addr);
+      document.write("<br>이름은 ", Class1.name);
+      document.write("<br>");
+      
+      let class2 = new Class1("신선한");   // 객체생성
+      document.write(class2.sayHi());
+      document.write("<br>", typeof(class2));
+   </script>
+<hr>
+    <script>
+      document.write("<br> 새로운 클래스");
+      
+      class Class2 {
+         subject = "자바스크립트";
+         
+         //constructor(){}
+         
+         constructor(name, nai){
+            this.name = name;
+            this.age = nai;
+         }
+         
+         printData(){
+            document.write(`<br>이름은 ${this.name}이고 나이는 ${this.age}`);
+            document.write(`<br>수강과목은 ${this.subject}`);
+            //return undefined; // 함수처럼 기본 값으로 undefined 반환
+         }
+      }
+      
+      document.write('<br>');
+      let test1 = new Class2("신기해", 22);
+      document.write('<br>', test1.printData());
+      test1.printData();
+      document.write('<br>', test1.subject);
+      document.write('<br>', test1.name);
+      document.write('<br>', test1.age);
+      
+      test1.name = "홍길동"; // test1 객체의 name 값 변경
+      document.write('<br><br>', test1.name);
+      test1.printData();
+      test1.subject = "파이썬";
+      test1.printData();
+      
+      document.write("<br>");
+      document.write("<br> 새로운 객체 생성");
+      
+      let test2 = new Class2("김밥", 32);
+      test2.printData();
+      
+   </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	class MyClock{
+		constructor({template}){
+		 	this.template = template;	
+		}
+		
+		render(){
+		 	let date = new Date();
+		 	
+		 	let hours = date.getHours();
+		 	if(hours < 10) hours = '0' + hours;
+		 	
+		 	let mins = date.getMinutes();
+		 	if(mins < 10) mins = '0' + mins;
+		 	
+		 	let sec = date.getSeconds();
+		 	if(sec < 10) sec = '0' + sec;
+		 	
+		 	let output = this.template.replace('h', hours).replace('m', mins).replace('s', sec);
+		 	console.log(output);
+		}
+		
+		start(){
+			this.render();
+			this.timer = setInterval(() => this.render(), 1000);
+		}
+		
+		stop(){
+			clearInterval(this.timer);
+		}
+	}
+	
+	function func1(){
+		clock = new MyClock({template:'h시 m분 s초'});
+		clock.start();
+	}
+	
+	function func2(){
+		clock.stop();
+	}
+</script>
+</head>
+<body>
+<button onclick="func1()">시계 console로 출력</button>
+<button onclick="func2()">시계 출력 종료</button>
+</body>
+</html>
