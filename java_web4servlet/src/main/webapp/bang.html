@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		window.onload = function () {
+			document.getElementById("btnSend").onclick = function () {
+				if (frm.name.value === "") {
+					alert("학생자명을 입력하시오");
+					frm.name.focus();
+					return;
+				}
+				// ...
+				frm.method="post";
+				frm.action="Bang";
+				frm.submit();
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>* 방명록에 글쓰기 *</h2>
+	<form name="frm">
+		<table>
+			<tr>
+				<td>작성자 : </td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td>글제목 : </td>
+				<td><input type="text" name="subject" /></td>
+			</tr>
+			<tr>
+				<td>글내용 : </td>
+				<td>
+					<textarea name="contents" rows="5" cols="50"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<input type="button" value="등록" id="btnSend">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

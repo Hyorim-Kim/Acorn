@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		document.getElementById("btnOk").onclick = function(){
+			frm.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><img src="images/pic2.png" title="매진 임박 서둘러~ "/></td>
+			<td>
+				<pre>
+					품명 : 키티
+					가격 : 20,000원
+					생산자 및 소재지 : 공장
+				</pre>
+			</td>
+		</tr>
+		 	<td colspan="2">
+				 <form action="./Cart" name="frm" method="post">
+					 <input type="hidden" name="name" value="키티"/>
+					 <input type="hidden" name="price" value="20000"/>
+					 <input type="button" id="btnOk" value="장바구니에 담기">
+					 <input type="button" id="btnCancel" value="홈으로" onclick="history.back()">
+				 </form>
+			 </td>
+	</table>
+</body>
+</html>
