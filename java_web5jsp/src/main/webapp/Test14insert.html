@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function () {  // 문서 로딩이 완료되면
+			//alert("a");
+			$("#btnIns").click(function () {
+				//alert("b");
+				// 입력자료 오류 검사 등의 작업을 진행 후 서버로 자료 전송
+				if($("#sang").val() === ""){  //아이디가 sang인 녀석의 값이 없으면 alert
+				 	alert("상품명을 입력");
+				 	return;
+				}
+				// 나머진 생략
+				
+				$("#frm").submit();
+			});
+
+			$("#btnList").bind("click", listFunc);
+
+		});
+		function listFunc() {
+			//alert("c");
+			//history.back();  // 전 페이지로 가라
+			location.href = "Test14sangpum.jsp"  // 이 페이지로 가라
+		}
+
+	</script>
+</head>
+
+<body>
+	** 상품 추가 **<br />
+	<form action="Test14insert.jsp" method="post" id="frm">
+		품명 : <input type="text" name="sang" id="sang" /><br />
+		수량 : <input type="number" name="su" id="su" /><br />
+		단가 : <input type="number" name="dan" id="dan" /><br /><br />
+		<input type="button" value="자료 추가" id="btnIns" />
+		<input type="reset" value="입력 취소" />
+		<input type="button" value="상품 정보" id="btnList" />
+
+	</form>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 package pack;
 
-public class Test13dto {
+public class Test13dto {  // value object(VO)
 	// 레코드 단위 처리를 위함
 	private String jikwon_no, jikwon_name, jikwon_jik, jikwon_gen;
 

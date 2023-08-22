@@ -20,6 +20,7 @@ public class Test13jikwon {
 		}
 	}
 	public ArrayList<Test13dto> getDataAll(String buser) {
+		//System.out.println(buser); 출력해보기
 		ArrayList<Test13dto> list = new ArrayList<Test13dto>();
 		try {
 			// db는 필요할 때 연결하고 처리가 끝나면 연결을 끊는다.
@@ -27,8 +28,8 @@ public class Test13jikwon {
 			String sql = "select jikwon_no, jikwon_name, jikwon_jik, jikwon_gen "
 			         + "from jikwon inner join buser on buser_no = buser_num where buser_name = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, buser);
-			rs = pstmt.executeQuery();
+			pstmt.setString(1, buser);  // String으로 넘어오니까 setString
+			rs = pstmt.executeQuery();  // select문이면 executeQuery 이외에는 executeUpdate
 			
 			while (rs.next()) {
 			    Test13dto dto = new Test13dto();
