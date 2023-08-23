@@ -72,7 +72,7 @@ public class connPooling {
 			pstmt.close();  // maxCode 끝났기 때문에
 			
 			// 추가 작업(insert)
-			sql = "insert into miniguest values(?,?,?,?)";
+			sql = "insert into miniguest values(?,?,?,?)";  // secure coding
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, maxCode);  // 첫번째 ?는 maxCode(int)
 			pstmt.setString(2, bean.getName());
