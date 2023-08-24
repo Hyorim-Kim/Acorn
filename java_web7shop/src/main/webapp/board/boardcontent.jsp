@@ -37,7 +37,7 @@ if(adminOk != null){
  	 	 	<a href="edit.jsp?num=<%=dto.getNum()%>&page=<%=spage %>">
  	 	 	 	<img src="../images/edit.gif" />
  	 	 	</a>
- 	 	 	<a href="deetele.jsp?num=<%=dto.getNum()%>&page=<%=spage %>">
+ 	 	 	<a href="delete.jsp?num=<%=dto.getNum()%>&page=<%=spage %>">
  	 	 	 	<img src="../images/del.gif" />
  	 	 	</a>
  	 	 	<a href="boardlist.jsp?page=<%=spage %>">

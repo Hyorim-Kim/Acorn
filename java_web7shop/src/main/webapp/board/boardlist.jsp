@@ -33,7 +33,7 @@ window.onload = function(){
          [<a href="../main.html">메인으로</a>]
          [<a href="boardlist.jsp?page=1">최근목록</a>]
          [<a href="boardwrite.jsp">새글작성</a>]
-         [<a href="#" onclick="window.open('admin.jsp', '', 'width=300, height=150, top=200, left=300')">관리자용</a>]
+         [<a href="#" onclick="window.open('../admin/admin.jsp', '', 'width=400, height=200, top=200, left=300')">관리자용</a>]
          <br><br>
          <table style="width: 100%">
             <tr style="background-color: pink">
@@ -73,11 +73,19 @@ window.onload = function(){
             
             for(int i = 0; i < list.size(); i++){ // for(BoardDto dto:list)...
                dto = list.get(i);
+               // 댓글 들여쓰기 준비--------------
+               int nst = dto.getNested();
+               String blank = "";
+               for(int b=0; b<nst; b++){
+            	   blank += "&nbsp;&nbsp;";
+               }
+               //---------------------------------
+            
             %>
             <tr>
                <td><%=dto.getNum()  %></td>
                <td>
-                	<a href="boardcontent.jsp?num=<%=dto.getNum() %>&page=<%=spage%>"><%=dto.getTitle() %></a>
+                	<%=blank %><a href="boardcontent.jsp?num=<%=dto.getNum() %>&page=<%=spage%>"><%=dto.getTitle() %></a>
                </td>
                <td><%=dto.getName()  %></td>
                <td><%=dto.getBdate()  %></td>
