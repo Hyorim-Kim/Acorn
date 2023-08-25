@@ -36,6 +36,15 @@ function dongCheck(){
 	}
 	zipForm.submit();
 }
+
+function sendFunc(zipcode, a1, a2, a3, a4){
+	//alert(zipcode + " " + a1);
+	opener.document.regForm.zipcode.value = zipcode;
+	let addr = a1 + " " + a2 + " " + a3 + " " + a4;
+	opener.document.regForm.address.value = addr;
+	window.close();  // 주소검색창 닫음
+}
+
 </script>
 </head>
 <body>
@@ -63,11 +72,11 @@ if(check.equals("n")){  // n일때만 만남(y : x)
 %>
  	<table>
  	 	<tr>
- 	 	 	<td>검색 자료를 입력하면 자동으로 주소가 입력된다</td>
+ 	 	 	<td style="color: red; font-weight: bold;">검색 자료를 입력하면 자동으로 주소가 입력된다</td>
  	 	</tr>
  	 	<tr>
  	 	 	<td>
-<%	 	 	
+<%	 	    
  		 	for(int i=0; i<zlist.size(); i++){
  		 		ZipcodeDto dto = zlist.get(i);  // i부터 꺼냄
  		 		String zipcode = dto.getZipcode();
@@ -77,7 +86,10 @@ if(check.equals("n")){  // n일때만 만남(y : x)
  		 		String area4 = dto.getArea4();
  		 		if(area4 == null) area4="";
 %>
- 				 	<%=zipcode%> <%=area1%> <%=area2%> <%=area3%> <%=area4%> <br/>
+ 			   <a href="javascript:sendFunc('<%=zipcode%>', '<%=area1%>', '<%=area2%>','<%=area3%>','<%=area4%>')">
+ 			   <%=zipcode%> <%=area1%> <%=area2%> <%=area3%> <%=area4%>
+ 			   </a><br/>
+ 			 	
 <% 
  		 	}
 %> 	 	

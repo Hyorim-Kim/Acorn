@@ -24,7 +24,7 @@ window.onload = function() {
 				<form name="regForm" method="post" action="registerproc.jsp">
 					<table border="1">
 						<tr align="center" style="background-color: pink">
-							<td colspan="2"><b style="color: #FFFFFF">회원 가입</b></td>
+							<td colspan="2"><b style="color: #000">회원 가입</b></td>
 						</tr>
 						<tr>
 							<td width="17%">아이디</td>
