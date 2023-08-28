@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 String adminid = (String)session.getAttribute("adminKey");
-if(adminid == null){
+if(adminid == null){ // adminid 없음
 	response.sendRedirect("adminlogin.jsp");
 	return;
 }

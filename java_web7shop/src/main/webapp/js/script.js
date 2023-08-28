@@ -75,5 +75,28 @@ function memberDelete(){
 	alert("회원탈퇴는 죽음");
 }
 
+// 관리자에서 회원 정보 수정용
+function memUpdate(id){
+	//alert(id);
+	document.updateFrm.id.value = id;
+	document.updateFrm.submit();
+}
 
+// 관리자에서 상품 처리용
+function productDetail(no){
+	//alert(no);
+	document.detailFrm.no.value = no;
+	document.detailFrm.submit();
+}
 
+function productUpdate(no){
+	//alert(no);
+	document.updateForm.no.value = no;
+	document.updateForm.submit();
+}
+
+function productDelete(no){
+	//alert(no);
+	document.deleteForm.no.value = no;
+	document.deleteForm.submit();
+}
