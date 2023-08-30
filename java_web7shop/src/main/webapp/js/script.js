@@ -127,9 +127,21 @@ function productDetailCart(no){
 	document.detailFrm.submit();
 }
 
+// 주문관리에서 사용
+function orderDetail(no){
+	document.detailFrm.no.value = no;
+	document.detailFrm.submit();
+}
 
+function orderUpdate(form){
+	document.detailFrm.flag.value = "update";
+	form.submit();  // flag에 업데이트를 달고 no, state 따라감
+}
 
-
+function orderDelete(form){
+	document.detailFrm.flag.value = "delete";
+	form.submit();
+}
 
 
 
