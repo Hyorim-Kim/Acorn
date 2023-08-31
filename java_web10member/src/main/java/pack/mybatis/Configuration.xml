@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  
  <typeAliases>
   	<typeAlias type="pack.business.DataDto" alias="dto"/>
-  	<typeAlias type="pack.business.DataFormbean" alias="frombean"/>
+  	<typeAlias type="pack.business.DataFormbean" alias="formbean"/>
  </typeAliases>
  
  <environments default="dev">
