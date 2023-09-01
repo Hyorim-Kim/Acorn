@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class DataFormbean {
 	private String id,name,passwd;
+	private String colname;
 }
