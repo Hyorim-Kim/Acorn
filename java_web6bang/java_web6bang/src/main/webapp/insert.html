@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(document).ready(function(){
+      //alert("테스트");
+      $("#btnIns").click(function(){
+         //alert("테스트1");
+         // 입력자료 오류 검사 등의 작업을 진행 후 서버로 자료를 전송
+         if($("#name").val() === ""){
+            alert("상품명을 입력하세요");
+            return;
+         }
+         
+         // id="frm"인 정보가 전달된다.
+         $("#frm").submit();
+      });
+      
+      $("#btnList").bind("click", listFunc);
+      
+      function listFunc(){
+      //alert("테스트2");
+      //history.back(); // 이전 화면으로 돌아가는 기능
+      location.href = "show.jsp"; // test14sangpum.jsp로 돌아가는 기능
+   }
+   });
+	</script>
+</head>
+
+<body>
+	** 글 추가 **<br />
+	<form action="insert.jsp" method="post" id="frm">
+		작성자 : <input type="text" name="name" id="name" /><br />
+		제목 : <input type="text" name="subject" id="subject" /><br />
+		내용 : <input type="text" name="contents" id="contents" /><br /><br />
+		<input type="button" value="등록" id="btnIns" />
+		<input type="reset" value="입력 취소" />
+		<input type="button" value="글 목록" id="btnList" />
+	</form>
+</body>
+
+</html>
