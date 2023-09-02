@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	document.querySelector("#sel").onchange = function(){
+		let sangpum = comment = " ";
+		
+		let sel = frm.sel.options[frm.sel.selectedIndex].value;  // value와 text 출력
+		let sang = frm.sel.options[frm.sel.selectedIndex].text;
+		//console.log(sel);
+		//console.log(sang);
+		if(sel === '1000'){
+			sangpum = sang;
+			comment = "필기도구의 왕은 역시 모나미 볼펜";
+		}else if(sel === '2000'){
+			sangpum = sang;
+			comment = "수업내용은 돌아서면 까먹은. 적어 두자";
+		}else if(sel === '3000'){
+			sangpum = sang;
+			comment = "클릭감이 생명";
+		}
+		
+		goAddRow(sangpum, comment);  // table에 tr을 추가
+		
+		document.querySelector("#myTable").setAttribute("border", 1);
+	}
+	
+	// 제목 출력
+	let h = document.createElement("h1");
+	let t = document.createTextNode("결과는 ");
+	h.appendChild(t);
+	document.querySelector("#header").appendChild(h);
+}
+
+function goAddRow(sangpum, comment){
+	// tr
+	let row = document.createElement("tr");
+	let col = goAddCol(sangpum);
+	row.appendChild(col);  // <tr><td>sangpum</td></tr>
+	col = goAddCol(comment);
+	row.appendChild(col);  // <tr><td>sangpum</td><td>comment</td></tr>
+	
+	document.querySelector("#myTbody").appendChild(row);
+}
+
+function goAddCol(data){
+	// td
+	let col = document.createElement("td");
+	let text = document.createTextNode(data);
+	col.appendChild(text);
+	return col;
+}
+
+</script>
+</head>
+<body>
+<h2>* DOM test *</h2>
+<form name="frm">
+	상품 선택 :
+	<select name="sel" id="sel">
+		<option value="">선택</option>
+		<option value="1000">볼펜</option>
+		<option value="2000">노트</option>
+		<option value="3000">마우스</option>
+	</select>
+</form>
+<span id="header"></span>
+<table id="myTable">
+	<thead>상품 정보</thead>
+	<tbody id="myTbody"></tbody>
+</table>
+</body>
+</html>

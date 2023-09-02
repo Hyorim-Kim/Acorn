@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sangpums>
+ 	<sangpum>
+ 	 	<code price="25000">10</code>
+ 	 	<sang>js 기초 이해</sang>
+ 	</sangpum>
+ 	<sangpum>
+ 	 	<code >20</code>
+ 	 	<sang>python 이해</sang>
+ 	</sangpum>
+ 	<sangpum>
+ 	 	<code >30</code>
+ 	 	<sang>MariaDB 활용</sang>
+ 	</sangpum>
+</sangpums>
+

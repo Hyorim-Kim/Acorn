@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func1(){
+		//alert("a");
+		//let str1 = document.getElementById("test1").innerHTML;
+		let str1 = document.querySelector("#test1").innerHTML;  // css의 selector를 사용하는 방법
+		console.log(str1);
+		//document.getElementById("test1").innerHTML = "<i>" + "다른 태그로 변경" + "</i>";
+		let tag1 =  "이름 : <input type = 'text' name 'irum'> <br> 나이 : <input type = 'text' name 'nai'><br>"
+		document.getElementById("test1").innerHTML = tag1
+	}
+	
+	function func2(){
+		//alert("b");
+		let str2 = document.getElementById("test2").innerText;  // innerHTML : div 안에 있는 element도 얻을 수 있다.
+		console.log(str2);
+		
+		 let tag2 =  "이름 : <input type = 'text' name 'irum'> <br> 나이 : <input type = 'text' name 'nai'><br>"
+		document.getElementById("test2").innerText = tag2
+	}
+	
+</script>
+
+<script>
+	function func1(){
+		document.getElementById("show1").innerText = "전통적인 이벤트 처리";
+	}
+	
+	let a = 10;
+	let b = {
+		funcFirst:function(){
+			document.getElementById("show1").innerText = "b객체변수의 메소드처럼 사용"
+		},
+		funcSecond:function(){
+			document.getElementById("show1").innerText = "b객체변수의 멤버로 사용"
+		}
+	}
+</script>
+
+<script>
+	window.onload = function(){  // 서버로부터 전송된 문서 로딩이 완료되면 자동 발생
+		//alert('bb');
+		let exBtn1 = document.getElementById("btn1");
+		exBtn1.onclick = function(){  // 이벤트 핸들러 장착
+			document.getElementById("show2").innerText = "클릭1 선택";
+		}
+		
+		let exBtn2 = document.getElementsByName("myBtn");  // 배열을 반환
+		//alert(exBtn2.length);
+		exBtn2[0].onclick = function(){  // 이벤트 핸들러 장착
+			document.getElementById("show2").innerText = "클릭2 누름";
+		}
+		
+		let exBtn3 = document.getElementsByName("myBtn")[1];
+		exBtn3.onclick = function(){
+			document.getElementById("show2").innerText = "클릭3 누름";
+		}
+		
+		//document.getElementById("btn4").onclick = function(){
+		document.getElementById("btn4").ondblclick = function(){  // 더블클릭, 다양한 이벤트 핸들러를 사용가능
+			document.getElementById("show2").innerText = "클릭4 누름";
+		}
+		
+		// 객체에 이벤트 연결 및 해제
+		document.getElementById("btn5").addEventListener("click", kbsFunc);  // '클릭이벤트가 발생되면', 함수이름
+	}
+	
+	function kbsFunc(){
+		document.getElementById("show2").innerText = "클릭5 만세";
+		// 이벤트 해제
+		document.getElementById("btn5").removeEventListener("click", kbsFunc);
+	}
+	
+</script>
+</head>
+<body>
+<h2>이벤트 처리</h2>
+실행 중 tag의 참조, 수정, 추가, 삭제 등의 작업이 가능 : DOM을 사용<br>
+DOM이 번거로으므로 간단히 처리할 수도 있다. innerText, innerHTML<hr>
+<div id="test1"><h1>innerHTML 연습</h1></div>
+<div id="test2"><h2>안녕하세요</h2></div>
+<button onclick="func1()">처리1</button>
+<button onclick="func2()">처리2</button>
+<br><br><br>
+<h2>이벤트 핸들러 사용</h2>
+<input type="button" value="버튼1" onclick="func1()">  <!-- w3c 권장사항이 아님 -->
+<input type="button" value="버튼2" onclick="b.funcFirst()">
+<input type="button" value="버튼3" onclick="b.funcSecond()">
+
+<br> <!-- 이벤트 분리,  element만 부여, script내에서 실행하기-->
+<input type="button" value="클릭1" id="btn1" />
+<input type="button" value="클릭2" id="btn2" name="myBtn"/>
+<input type="button" value="클릭3" id="btn3" name="myBtn"/>
+<input type="button" value="클릭4" id="btn4" />
+<input type="button" value="클릭5" id="btn5" />
+<br>
+<div id="show1">출력1</div>
+<div id="show2">출력2</div>
+<br>
+<input type="radio" name="aa" checked />aa&nbsp;&nbsp;  <!-- 선택됨 -->
+<input type="radio" name="aa" />aa2&nbsp;&nbsp;
+<input type="radio" name="aa" />aa3&nbsp;&nbsp;
+<br>
+<input type="radio" name="bb" />bb&nbsp;&nbsp;
+<input type="radio" name="bb" />bb2&nbsp;&nbsp;
+</body>
+</html>

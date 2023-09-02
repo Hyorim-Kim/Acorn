@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">  // 생략가능
+	
+</script>
+<script> // 보통 body 위 script에 function 작성
+	function func(){
+		alert("a");
+	}
+</script>
+
+<script type="text/javascript">
+	function colorFunc(){
+		//alert("b");
+		//alert(document.frm.bc.value)  // 문서 중 name이 frm, bc인거 출력
+		document.body.bgColor = document.frm.bc.value;
+		document.body.text = frm.tc.value;
+	}
+</script>
+</head>
+<body>
+<h2>이벤트 처리</h2>
+<a href="javascript:func();">이벤트 처리1</a><br>
+<a href="javascript:;" onclick="func()">이벤트 처리2</a><br>
+<div onclick="func()">div태그에 이벤트 처리3</div>
+<button onclick="func()">이벤트 처리4</button>
+<input type = "button" onclick = "func()" value = "이벤트 처리5">
+<hr>
+<form name="frm">
+<table border="1">
+	<tr><td colspan="2">색상 선택</td></tr>
+	<tr>
+		<td><b>배경색 : </b></td>
+		<td>
+			<select name="bc" id="bc" class="bc";>
+				<option value="black">검정</option>
+				<option value="blue">파랑</option>
+				<option value="green">초록</option>
+				<option value="white" selected="selected">하양</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><b>글자색 : </b></td>
+		<td>
+			<select name="tc";>
+				<option value="black" selected>검정</option>
+				<option value="blue">파랑</option>
+				<option value="green">초록</option>
+				<option value="white">하양</option>
+			</select>
+		</td>
+	</tr>
+	<td colspan="2" style="text-align: center;">
+		 	<input type="button" value="변경" onclick="colorFunc()" />
+ 	</td>
+	
+	</tr>
+</table>
+	
+</form>
+</body>
+</html>

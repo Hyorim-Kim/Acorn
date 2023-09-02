@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	class Animal{
+		move = "움직임";
+		
+		constructor(name){
+			this.name = name;
+			this.speed = 0;
+		}
+		
+		run(speed){
+			this.speed = speed;
+			document.write(`<br>${this.name} : speed ${this.speed}`);
+			document.write("<br>", this.move);
+		}
+		
+		stop(){
+			this.speed = 0;
+			document.write(`<br>${this.name} : stop ~`);
+		}
+		
+		disp(){
+			document.write("<br>동물임을 선언하노라");	
+		}
+		
+	}
+	
+	// 상속
+ 	class Rabbit extends Animal{
+		 leg = 2;
+		 
+		 constructor(name, leg){
+			 super(name);
+			 this.leg = leg;
+		 }
+		 
+		 stop(){   // method overriding
+			 super.stop();
+			 this.disp();
+			 super.disp();
+			 // hide();   : error
+			 this.hide();
+		 }
+		 
+		 hide(){   // Rabbit 고유 메소드
+			 document.write(`<br>${this.name} : 숨다!`);
+		 }
+	 }
+	 
+	 class Dog extends Animal{
+		 constructor(name){
+			 super(name);
+		 }
+		 
+		 disp(){   // method overriding
+			 document.write(`<br>댕댕이 화이팅 : 열심히 ${this.move}`);
+		 }
+	 }
+	
+	function func(){
+		//alert("a");
+		const ani = new Animal('동물 수퍼 클래스');
+		ani.disp();
+		ani.run(5);
+		ani.stop();
+		
+		document.write("<hr>상속을 학습하자<br>");
+		const rabbit = new Rabbit("토끼", 4);
+		rabbit.disp();
+		rabbit.run(10);
+		rabbit.stop();
+		
+		document.write("<br>^^^^^^^^^^^^^^^");
+		const dog = new Dog("댕댕이");
+		dog.disp();
+		dog.run(5);
+		dog.stop();
+		
+		document.write("<br>^^^^^ 다형성 ^^^^^");
+		let poly = rabbit;   // 일반변수에 주소치환(부모변수에 X)
+		poly.disp();
+		document.write("<br>");
+		poly = dog;
+		poly.disp();
+		
+	}
+	
+</script>
+</head>
+<body onload = "func()">
+
+</body>
+</html>

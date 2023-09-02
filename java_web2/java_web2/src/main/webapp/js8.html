@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>대화상자 호출용 내장함수(alert, confirm, prompt)</h2>
+<script>
+	let irum = "홍길동";
+	let junhwa = "111-1234";
+	alert("이름은 " + irum + "\n전화는 " + junhwa);
+	console.log("이름은 " + irum + "\n전화는 " + junhwa);
+	document.write("이름은 " + irum + "<br>전화는 " + junhwa);
+	
+	let result = confirm("계속할까요?\n버튼 선택");
+	document.write("<br>선택한 값은 " + result);
+	
+	let juso = prompt("사는 곳은", "서울");  // 키보드로 값을 바꿀 수 있음
+	document.write("<br>주소는 " + juso);
+	
+	
+</script>
+</body>
+</html>

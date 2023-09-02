@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		document.querySelector("#btnXML").onclick = startXML;
+		document.querySelector("#btnJSON").onclick = startJSON;
+	}
+	
+	let xhr;
+	
+	function startXML(){
+		xhr = new XMLHttpRequest();
+		xhr.open("get", "js21xml.jsp", true)
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4){
+				if(xhr.status === 200){
+					processXml();
+				}
+			}	
+	 	}
+	 	
+	 	xhr.send(null);
+	 }
+	 	
+	 function processXml(){
+		 let data = xhr.responseXML;
+		 //alert(data);
+		 let sangpumNode = data.getElementsByTagName("sangpum");
+		 let codeNode = data.getElementsByTagName("code");
+		 let sangNode = data.getElementsByTagName("sang");
+		 let suNode = data.getElementsByTagName("su");
+		 let danNode = data.getElementsByTagName("dan");
+		 
+		 let str = "<table border='1'>";
+		 str += "<tr><th>코드</th><th>상품명</th><th>수량</th><th>단가</th><tr>"
+		 for(let i = 0; i < sangpumNode.length; i++){
+			 str += "<tr>";
+			 str += "<td>" + codeNode[i].childNodes[0].nodeValue + "</td>";
+			 str += "<td>" + sangNode[i].childNodes[0].nodeValue + "</td>";
+			 str += "<td>" + suNode[i].childNodes[0].nodeValue + "</td>";
+			 str += "<td>" + danNode[i].childNodes[0].nodeValue + "</td>";
+			 str += "</tr>";
+		 }
+	 	 str += "</table>"
+	 	 
+	 	 document.querySelector("#show").innerHTML = str;
+	 }
+	
+	function startJSON(){
+		xhr = new XMLHttpRequest();
+		xhr.open("get", "js21json.jsp", true);
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4){
+				if(xhr.status === 200){
+					processJson();
+				}
+			}	
+	 	}
+		xhr.send(null);	
+ 	}
+	
+	
+	function processJson(){
+		let data = xhr.responseText;
+		//alert(data);
+		let parseData = JSON.parse(data);
+		
+		let str = "";
+		for(let i=0; i<parseData.sangpum.length; i++){
+			str += parseData.sangpum[i].code + " " +
+			 	   parseData.sangpum[i].sang + " " +
+			 	   parseData.sangpum[i].su + " " +
+			 	   parseData.sangpum[i].dan + "<br>";
+		console.log(str);
+		}
+		document.querySelector("#show").innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+<h2>DB 자료를 읽어 Ajax 처리</h2>
+<button id="btnXML">MariaDB자료 XML로 읽기</button>
+<button id="btnJSON">MariaDB자료 JSON로 읽기</button>
+<br>
+<textarea rows="5" cols="50"></textarea>
+<hr>
+<div id="show"></div>
+</body>
+</html>

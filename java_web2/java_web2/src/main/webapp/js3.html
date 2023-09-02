@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.my{background-color: yellow;}
+</style>
+</head>
+<body>
+<h2>제어문</h2>
+<script>
+	document.write('조건판단문 if -----------');
+	const irum = '한국인';
+	if(irum === '홍길동'){
+		document.write('참');
+		document.write('맞아요');
+	}else{
+		document.write('거짓');
+	}
+	
+	document.write('<br>');
+	let su = 1;
+	if(su % 2 === 0)
+	 	document.write('<h1>짝수</h1>');
+	else
+	    document.write('<span style = "color:red;"> 홀수</span>');
+	
+</script>
+<br>휴~ 숨 한번 쉬고<br>
+<script>
+	document.write('조건판단문 switch -----------<br>');
+	//let jumsu = prompt('학점 입력', 'A');
+	let jumsu = 'A';
+	switch(jumsu.toLowerCase()){
+		case 'a':
+		case 'b':
+		case 'c':document.write('good'); break;
+		case 'd':document.write('normal'); break;
+		default:document.write('etc');
+	}
+</script>
+<br>휴~~ 숨 두번 쉬고<br>
+<script>
+	document.write('반복문 for -----------<br>');
+	let a;
+	for(a = 1; a <= 5; a++){
+		document.write(`a값은 ${a}<br>`);
+	}
+	document.write(`반복문 수행 후 a값은 ${a}<br>`);
+	
+	// 다중 for도 가능 : 생략
+	document.write('<br>');
+	for(let k=1; k<=10; k+=1){
+		if(k === 3)continue;
+		document.write(`k값은 ${k}<br>`);
+		if(k === 5)break;
+	}
+	
+	// 문:2 ~ 9단 까지 구구단 출력(table tag를 사용)
+	// 2*1=2    ...   2*9=18
+	// ...
+	// 짝수 단의 배경색은 노랑 - css 적용 : internal 방식 사용
+
+ 	document.write('<br>구구단<br>');
+	document.write('<table border="1">');
+	for(let i=2; i<=9; i++){
+		if(i % 2 === 0)
+	 	 	document.write('<tr class = "my">');
+	    else
+	   	    document.write('<tr>');	
+		for(let j=1; j<=9; j++){
+			document.write('<td>');
+			document.write(`${i}*${j}=${i*j}`);
+			document.write('<td>');
+		}
+		document.write('</tr>');
+	}
+	document.write('</table>');
+</script>
+
+<br>하나만 더 ~~<br>
+<script>
+	document.write('반복문 while -----------<br>');
+	let i = 1;
+	while(i <= 5){
+		document.write(i);
+		i++;
+	}
+	document.write("<br>");
+	i = 0;
+	while(true){
+		i++;
+		if(i == 3) continue;
+		document.write(i);
+		if(i == 5) break;
+	}
+</script>
+<br>별도 작성된 js 호출<br>
+<script type="text/javascript" src="js/js3_ex.js"></script>
+
+</body>
+</html>
+
+
+
+
