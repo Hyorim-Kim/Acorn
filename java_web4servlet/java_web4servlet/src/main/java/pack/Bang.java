@@ -23,7 +23,7 @@ public class Bang extends HttpServlet {
 		// MariaDB 드라이버 파일 로딩 후 DB 연결 객체 생성
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/bangdb", "root", "seoho123");
+			conn = DriverManager.getConnection("jdbc:mariadb://localhost:3307/bangdata", "root", "seoho123");
 			pstmt = conn.prepareStatement("insert into miniguest(name, subject, contents) values(?,?,?)");
 		} catch (Exception e) {
 			System.out.println("init 연결 실패 : " + e);

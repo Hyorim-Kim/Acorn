@@ -16,14 +16,14 @@ public class SqlMapConfig {
 			Reader reader = Resources.getResourceAsReader(resource);
 			sessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			reader.close();
-			
+
 			// MyBatis annotation 사용할 경우 추가 코드
-			Class[] mappers = {SqlMapperInter.class};
-			for(Class m:mappers) {
+			Class[] mappers = { SqlMapperInter.class };
+			for (Class m : mappers) {
 				// SqlSessionFactory에 mapper 등록
-				sessionFactory.getConfiguration().addMapper(m);  // 클래스의 포함관계(. 2)
+				sessionFactory.getConfiguration().addMapper(m); // 클래스의 포함관계(. 2)
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("SqlMapConfig 오류 : " + e);
 		}
